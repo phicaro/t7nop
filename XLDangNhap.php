@@ -41,6 +41,12 @@ try {
                 
             }
 
+//        if ($r[3] == '1') {
+//            header("location:admin.php");
+//        }
+//        else {
+//            header("location:dangky.php");
+//        }
         }
     } else {
 

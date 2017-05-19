@@ -215,13 +215,13 @@
                                 <td>{{t.socmnd}}</td>
                                 <td>{{t.sodienthoai}}</td>
                                 <td>{{t.email}}</td>
-                                <td> <a href="#"  ng-click="xoa(t.id)" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>Chuyển Đến Xét Duyệt</a></td>
-
-
+                                <td><a href="#myModalEdit" class="btn btn-info" id="btnEdit" data-toggle="modal" data-target="#myModalEdit"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                                    <a href="#"  ng-click="xoa(t.id
+                                                            )" class="btn btn-info"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
                             </tr>
 
                         </tbody>
-                   </table>
+                    </table>
                 </div>  
 
 
@@ -428,7 +428,7 @@
                 }
                 ;
                 $scope.xoa = function (idx) {
-                    $http.get("Xu/DeleteDL.php?id=" + idx).then(function (response) {
+                    $http.get("XuLy/DeleteDL.php?id=" + idx).then(function (response) {
                         LoadDL();
                     });
 

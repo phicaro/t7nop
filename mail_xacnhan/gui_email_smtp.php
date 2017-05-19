@@ -1,38 +1,5 @@
-<?php
-
-require 'PHPMailerAutoload.php';
-//if(isset($_POST['send']))
-//{
-    $email='vokimphi95@gmail.com';
-    $password='phI012395';
-    //$to_id='vokimphi95@gmail.com';
-    $subject ='Ket Qua Dang Ky PassPort';
-    $message = $_GET['tenxd'];
-    $to_id = $_GET['mailxd'];
-    $message = $_GET['noidung'];
-//$email = $_POST['email'];
-//$password = $_POST['password'];
-//$to_id = $_POST['toid'];
-//$message = $_POST['message'];
-//$subject = $_POST['subject'];
-$mail = new PHPMailer;
-$mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->SMTPSecure = 'tls';
-$mail->SMTPAuth = true;
-$mail->Username = $email;
-$mail->Password = $password;
-$mail->addAddress($to_id);
-$mail->Subject = $subject;
-$mail->msgHTML($message);
-//header('location:../BoPhanXetDuyet.php');
-if (!$mail->send()) {
-$error = "Mailer Error: " . $mail->ErrorInfo;
-echo '<p id="para">'.$error.'</p>';
-}
-?>
-<!--<!DOCTYPE html>
+	
+<!DOCTYPE html>
 <html>
     <style>
 @import url(https://fonts.googleapis.com/css?family=Raleway);
@@ -137,11 +104,37 @@ margin: 0 35%;
 </form>
 </div>
 </div>
-
-//else {
-//echo '<p id="para">Message đã gửi!</p>';
-//}
-//}
-//else{
-//echo '<p id="para">Vui lòng nhập đúng thông tin</p>';
-//}-->
+<?php
+require 'PHPMailerAutoload.php';
+if(isset($_POST['send']))
+{
+$email = $_POST['email'];
+$password = $_POST['password'];
+$to_id = $_POST['toid'];
+$message = $_POST['message'];
+$subject = $_POST['subject'];
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+$mail->Username = $email;
+$mail->Password = $password;
+$mail->addAddress($to_id);
+$mail->Subject = $subject;
+$mail->msgHTML($message);
+if (!$mail->send()) {
+$error = "Mailer Error: " . $mail->ErrorInfo;
+echo '<p id="para">'.$error.'</p>';
+}
+else {
+echo '<p id="para">Message đã gửi!</p>';
+}
+}
+else{
+echo '<p id="para">Vui lòng nhập đúng thông tin</p>';
+}
+?>
+</body>
+</html>
